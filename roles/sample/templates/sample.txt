@@ -1,4 +1,10 @@
 Hello {{ ansible_user_id }},
        this is a demo template.
 
+## in norml user ansible -i localhost, all -k -m setup in this
+## ansible -i localhost, all -k -m setup | grep user u will find out ansible_user_id
+## now u have one variable there which is a fact...
+
 URL = {{ URL }}
+## this is a custom variable
+## and now create 08.templates.yml

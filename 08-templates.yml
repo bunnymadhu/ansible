@@ -2,3 +2,4 @@
   hosts: localhost
   roles:
     - sample
+## then go to tasks in that main.yml and add template
