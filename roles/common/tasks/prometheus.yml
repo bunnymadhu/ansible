@@ -1,0 +1,3 @@
+- name: Install Prometheus Node Exporter
+  shell: curl -s https://github.com/linuxautomations/labautomation/blob/master/tools/prometheus-node-exporter/install.sh | bash
+
