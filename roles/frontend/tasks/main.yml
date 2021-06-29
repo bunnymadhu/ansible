@@ -1,0 +1,29 @@
+- name: Install nginx
+  yum:
+    name: nginx
+    state: latest
+
+- name: Download Package
+  include_role:
+    name: common
+    tasks_from: download-from-github
+  vars:
+    APP_DIR: /usr/share/nginx/html
+    EXTRACT_DIR: /usr/share/nginx
+
+- name: Copy Extracted Directory
+  ansible.builtin.copy:
+    src: /usr/share/nginx/frontend-main/static/
+    dest: /usr/share/nginx/html
+    remote_src: yes
+
+- name: Copy Nginx Robosho Config
+  copy:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+
+- name: Start Nginx
+  ansible.builtin.systemd:
+    state: restarted
+    name: nginx
+    enabled: yes
