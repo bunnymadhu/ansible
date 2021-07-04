@@ -22,8 +22,16 @@
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
 
-- name: Start Nginx
-  ansible.builtin.systemd:
-    state: restarted
-    name: nginx
-    enabled: yes
+#- name: Start Nginx
+#  ansible.builtin.systemd:
+#    state: restarted
+#    name: nginx
+#    enabled: yes
+
+- name: Setup Filebeat
+  include_role:
+    name: common
+    tasks_from: filebeat
+  vars:
+    IS_STRUCTURED: false
+    FILENAME: /var/log/nginx/access.log
