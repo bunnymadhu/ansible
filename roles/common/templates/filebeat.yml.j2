@@ -21,13 +21,13 @@ setup.ilm.enabled: false
 setup.template.name: "{{COMPONENT}}"
 setup.template.pattern: "{{COMPONENT}}-*"
 output.elasticsearch:
-  hosts: ["172.31.74.143:9200"]
+  hosts: ["172.31.70.190:9200"]
   index: "{{COMPONENT}}-%{+yyyy.MM.dd}"
 {% endif %}
 
 {% if not IS_STRUCTURED %}
 output.logstash:
-  hosts: ["172.31.74.143:5044"]
+  hosts: ["172.31.70.190:5044"]
 {% endif %}
 
 
