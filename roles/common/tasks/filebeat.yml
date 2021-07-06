@@ -15,5 +15,5 @@
 - name: Install Filebeat
   yum:
     name: filebeat
-    state: latest
+    state: restarted
     enabled: yes
