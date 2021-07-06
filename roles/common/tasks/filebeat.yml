@@ -16,4 +16,4 @@
   yum:
     name: filebeat
     state: latest
-    enabled: true
+    enabled: yes
