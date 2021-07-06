@@ -1,7 +1,8 @@
-#- type: log
- #enabled: true
-  #paths:
-    #- /var/log/*.log
+filebeat.inputs:
+  - type: log
+    enabled: false
+    paths:
+      - /var/log/{{COMPONENT}}.messages
     #- c:\programdata\elasticsearch\logs\*
 
   # Exclude lines. A list of regular expressions to match. It drops the lines that are
@@ -45,8 +46,8 @@
   enabled: false
 
   # Paths that should be crawled and fetched. Glob based paths.
-  #paths:
-    #- /var/log/*.log
+  paths:
+    - /var/log/*.log
     #- c:\programdata\elasticsearch\logs\*
 
   # Exclude lines. A list of regular expressions to match. It drops the lines that are
