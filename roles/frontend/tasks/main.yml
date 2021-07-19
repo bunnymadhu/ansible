@@ -21,12 +21,19 @@
   copy:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
+  when: ENV is not defined
 
-#- name: Start Nginx
-#  ansible.builtin.systemd:
-#    state: restarted
-#    name: nginx
-#    enabled: yes
+- name: Upadate Nginx Roboshop Config
+  template:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+  when: ENV is defined
+
+- name: Start Nginx
+  ansible.builtin.systemd:
+    state: restarted
+    name: nginx
+    enabled: yes
 
 - name: Setup Filebeat
   include_role:
